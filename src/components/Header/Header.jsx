@@ -7,7 +7,7 @@ function Header() {
     <header className="header">
       <SelectUser />
       <svg width="180" height="26" viewBox="0 0 180 26">
-        <use href={`${baseUrl ? baseUrl + '/' : ''}sprite.svg#logo-svg}`}></use>
+        <use href={`${baseUrl ? baseUrl : ''}sprite.svg#logo-svg}`}></use>
       </svg>
     </header>
   );
