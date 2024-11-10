@@ -1,0 +1,14 @@
+.note-add {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 156%;
+  color: var(--white-color);
+  margin: 0;
+  padding: 10px;
+}

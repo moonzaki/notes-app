@@ -1,0 +1,120 @@
+.input {
+  border: 1px solid transparent;
+  transition: .3s linear;
+  width: 100%;
+  background: var(--background);
+  color: var(--white);
+  outline: unset;
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    border: 1px solid transparent;
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px var(--background) inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+
+  &[name="title"] {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 32px;
+    color: #fff;
+  }
+
+  &[name="date"] {
+    position: relative;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 14px;
+    color: #fff;
+
+    &::-webkit-calendar-picker-indicator {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: auto;
+      height: auto;
+      color: transparent;
+      background: transparent;
+    }
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-clear-button {
+      z-index: -10;
+    }
+
+    &::-webkit-input-placeholder {
+      z-index: 99;
+    }
+
+    &:placeholder {
+      z-index: 99;
+    }
+
+    &:not(.has-value):before {
+      content: attr(placeholder);
+      width: 100%;
+    }
+  }
+
+  &[name="tag"] {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 14px;
+    color: #fff;
+  }
+
+  &[name="post"] {
+    flex-grow: 1;
+    resize: none;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #fff;
+    hyphens: auto;
+    height: 100%;
+    word-break: normal;
+    white-space: normal;
+
+    &::placeholder {
+      font-family: var(--font-family);
+      font-weight: 600;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0;
+      min-width: 100px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+      background: transparent;
+      -webkit-border-radius: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb:vertical {
+      height: 5px;
+      background-color: #cccccc;
+    }
+
+    &::-webkit-scrollbar-thumb:horizontal {
+      width: 5px;
+      background-color: #cccccc;
+    }
+  }
+
+  &.invalid {
+    border: 1px solid var(--error);
+    background: var(--error-background);
+    color: var(--white);
+    border-radius: 5px;
+  }
+}
