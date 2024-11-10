@@ -1,4 +1,4 @@
-# Note-app on React + Vite
+# Notes-App on Vite + React
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

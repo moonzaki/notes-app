@@ -5,7 +5,7 @@ import { INITIAL_STATE, formReducer } from './NoteForm.state';
 import Input from '../Input/Input';
 import { UserContext } from '../../context/user.context';
 
-function NoteForm({ callback, data, setCurrentItem }) {
+function NoteForm({ callback, data, setCurrentItem, delItem }) {
 
   const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
   const { isValid, isFormReadyToSubmit, values } = formState;
@@ -68,16 +68,26 @@ function NoteForm({ callback, data, setCurrentItem }) {
     e.preventDefault();
     dispatchForm({ type: 'SUBMIT' });
   };
-
+  
   useEffect(() => {
     dispatchForm({ type: 'SET_VALUE', payload: { userId } });
   }, [userId]);
-
+  
   const onChangeValue = (e) => {
     dispatchForm({ type: 'SET_VALUE', payload: { [e.target.name]: e.target.value } });
   };
-
-
+  
+  const delCurrentItem = (item) => {
+    if (item) {
+      delItem(item);
+      dispatchForm({ type: 'CLEAR' });
+      dispatchForm({ type: 'SET_VALUE', payload: { userId } });
+      setCurrentItem(null);
+    }
+  };
+  
+  
+  
   return (
     <form className={styles['note-form']} onSubmit={addNoteItem}>
       <div className={styles['input-wrapper']}>
@@ -90,11 +100,14 @@ function NoteForm({ callback, data, setCurrentItem }) {
           ref={titleRef}
           placeholder='Entry title' />
         <div className={styles.user}>{userId}</div>
-        <Button type="button" className={styles.delete}>
+        {data?.id && <Button
+          type="button"
+          className={styles.delete}
+          onClick={() => { delCurrentItem(data); }}>
           <svg width="20" height="20" viewBox="0 0 20 20">
             <use href='/sprite.svg#delete-svg'></use>
           </svg>
-        </Button>
+        </Button>}
       </div>
       <div className={styles['input-wrapper']}>
         <svg width="18" height="18" viewBox="0 0 18 18">
