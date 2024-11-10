@@ -1,0 +1,14 @@
+.select {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 156%;
+  color: var(--white-color);
+  background: var(--background);
+  outline: unset;
+  border: unset;
+  border-bottom: 1px solid var(--border-form);
+  padding-bottom: 5px;
+  transition: .3s linear;
+
+}
