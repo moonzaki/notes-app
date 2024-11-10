@@ -105,13 +105,13 @@ function NoteForm({ callback, data, setCurrentItem, delItem }) {
           className={styles.delete}
           onClick={() => { delCurrentItem(data); }}>
           <svg width="20" height="20" viewBox="0 0 20 20">
-            <use href='/sprite.svg#delete-svg'></use>
+            <use href={`${baseUrl ? baseUrl + '/' : ''}sprite.svg#delete-svg`}></use>
           </svg>
         </Button>}
       </div>
       <div className={styles['input-wrapper']}>
         <svg width="18" height="18" viewBox="0 0 18 18">
-          <use href="/sprite.svg#date-svg"></use>
+          <use href={`${baseUrl ? baseUrl + '/' : ''}sprite.svg#date-svg`}></use>
         </svg>
         <p>Date</p>
         <Input
@@ -124,7 +124,7 @@ function NoteForm({ callback, data, setCurrentItem, delItem }) {
       </div>
       <div className={styles['input-wrapper']}>
         <svg width="18" height="18" viewBox="0 0 18 18">
-          <use href={`/${baseUrl? baseUrl + '/' : ''}sprite.svg#tag-svg`}></use>
+          <use href={`${baseUrl ? baseUrl + '/' : ''}sprite.svg#tag-svg`}></use>
         </svg>
         <p>Tags</p>
         <input
