@@ -47,12 +47,16 @@ function App() {
     }
   };
 
+  const deleteItem = item => {
+    setItems([...mapItems(items)].filter(i => i.id !== item.id));
+  };
+
   return (
     <UserContextProvider>
       <div className='app'>
         <Sidebar>
           <Header />
-          <NoteAddButton />
+          <NoteAddButton clearForm={() => { setCurrentItem(null); }} />
           <NoteList
             items={mapItems(items)}
             data={currentItem}
@@ -62,7 +66,10 @@ function App() {
           <NoteForm
             callback={updateNoteList}
             data={currentItem}
-            setCurrentItem={setCurrentItem} />
+            setCurrentItem={setCurrentItem}
+            currentItem={currentItem}
+            delItem={deleteItem}
+          />
         </Content>
       </div>
     </UserContextProvider>
