@@ -8,7 +8,7 @@ function NoteAddButton({ clearForm }) {
   return (
     <NoteButton className="note-add" onClick={clearForm}>
       <svg width="20" height="21" viewBox="0 0 20 21">
-        <use href={`${baseUrl ? baseUrl + '/' : ''}sprite.svg#add-svg`}></use>
+        <use href={`${baseUrl ? baseUrl : ''}sprite.svg#add-svg`}></use>
       </svg>
       New memory
     </NoteButton>
